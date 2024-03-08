@@ -1,0 +1,24 @@
+{
+  "library": {
+    "books": [
+      {
+        "title": "How to Win Friends and Influence People",
+        "authors": "Dale Carnegie",
+        "genre": "Self-help",
+        "year_published": "October 1936"
+      },
+      {
+        "title": "Corporate Finance 11th edition",
+        "authors": "Stephen Ross, Randal W. Westerfield, Jeffrey Jaffe, Bradford Jordan",
+        "genre": "Business/Economics",
+        "year_published": "October 2015"
+      },
+      {
+        "title": "The Intelligent Investor",
+        "authors": "Benjamin Graham",
+        "genre": "Business & Money",
+        "year_published": "February 2006"
+      }
+    ]
+  }
+}
