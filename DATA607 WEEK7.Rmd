@@ -1,0 +1,98 @@
+---
+title: "week 7 Data 607"
+output: html_document
+date: "2024-03-07"
+---
+
+# Angel Gallardo
+# load Data table from HTML, XML, and JSON
+
+```{r}
+
+```
+
+
+#  open html table as a dataframe
+```{r}
+
+library(rvest)
+
+#read HTML
+url <- "https://raw.githubusercontent.com/Angelogallardo05/DATA607-wk7/main/booksinfo.html"
+
+
+html <- read_html(url)
+
+
+table <- html_table(html)
+
+# Access the first (and only) table
+df <- table[[1]]
+
+
+print(df)
+
+
+```
+
+
+
+
+
+
+#Open xml table as a dataframe
+```{r}
+
+
+library(xml2)
+library(magrittr)
+
+xml_file <- "https://raw.githubusercontent.com/Angelogallardo05/DATA607-wk7/main/booksxml.xml"
+doc <- read_xml(xml_file)
+
+# Extract data from XML nodes
+titles <- xml_text(xml_find_all(doc, "//title"))
+authors <- xml_text(xml_find_all(doc, "//authors"))
+genres <- xml_text(xml_find_all(doc, "//genre"))
+years_published <- xml_text(xml_find_all(doc, "//year_published"))
+
+# Create a data frame
+books_df <- data.frame(
+  Title = titles,
+  Authors = authors,
+  Genre = genres,
+  Year_Published = years_published
+)
+
+
+print(books_df)
+
+```
+
+
+
+
+
+
+#open Json file as a datraframe
+```{r}
+
+
+library(jsonlite)
+
+# Read the JSON file
+json_file <- "https://raw.githubusercontent.com/Angelogallardo05/DATA607-wk7/main/booksinfo.json"
+json_data <- fromJSON(json_file)
+
+# Extract the book data
+books_df <- json_data$library$books
+
+
+print(books_df)
+
+
+```
+
+
+
+# all loaded the same
